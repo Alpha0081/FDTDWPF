@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 ///<summary>
 ///Предоставляет возможность работать с комплексными числами.
 ///</summary>

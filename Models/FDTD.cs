@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace FDTDWPF.Models
+﻿namespace FDTDWPF.Models
 {
     class FDTD
     {
-        public FDTD(Grid G, Item O,  int time, Probe Z = null)
+        public FDTD(Grid G, Item O,  int time, Probe Z = null)        
         {
             for (int t = 0; t < time; ++t)
             {

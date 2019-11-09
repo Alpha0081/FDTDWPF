@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-namespace FDTDWPF.Models
+﻿namespace FDTDWPF.Models
 {
     class Grid
     {
@@ -13,6 +8,18 @@ namespace FDTDWPF.Models
         public double[,,] Hz;
         public double[,,] Hy;
         public double[,,] Hx;
+        private double[,,] Chxh;
+        private double[,,] Chxe;
+        private double[,,] Chyh;
+        private double[,,] Chye;
+        private double[,,] Chzh;
+        private double[,,] Chze;
+        private double[,,] Cexe;
+        private double[,,] Cexh;
+        private double[,,] Ceye;
+        private double[,,] Ceyh;
+        private double[,,] Ceze;
+        private double[,,] Cezh;
         private int x, y, z;
         public Grid(int x, int y, int z)
         {
@@ -22,6 +29,18 @@ namespace FDTDWPF.Models
             Ex = new double[x - 1, y, z];
             Ey = new double[x, y - 1, z];
             Ez = new double[x, y, z - 1];
+            Chxh = new double[x, y - 1, z - 1];
+            Chxe = new double[x, y - 1, z - 1];
+            Chyh = new double[x - 1, y, z - 1];
+            Chye = new double[x - 1, y, z - 1];
+            Chzh = new double[x - 1, y - 1, z];
+            Chze = new double[x - 1, y - 1, z];
+            Cexe = new double[x - 1, y, z];
+            Cexh = new double[x - 1, y, z];
+            Ceye = new double[x, y - 1, z];
+            Ceyh = new double[x, y - 1, z];
+            Ceze = new double[x, y, z - 1];
+            Cezh = new double[x, y, z - 1];
         }
         public void UpdateH()
         {
