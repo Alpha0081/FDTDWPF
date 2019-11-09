@@ -25,7 +25,40 @@ namespace FDTDWPF.Models
         }
         public void UpdateH()
         {
-
+            // Update Hx
+            for (int i = 0; i < x; ++i)
+            {
+                for (int j = 0; j < y - 1; ++j)
+                {
+                    for (int k = 0; k < z - 1; ++k)
+                    {
+                        Hx[i, j, k] = Chxh[i, j, k] * Hx[i, j, k] + Chxe[i, j, k] * ((Ey[i, j, k + 1] - Ey[i, j, k]) - (Ez[i, j + 1, k] - Ez[i, j, k]));
+                    }
+                }
+            }
+            // Update Hy
+            for (int i = 0; i < x - 1; ++i)
+            {
+                for (int j = 0; j < y; ++j)
+                {
+                    for (int k = 0; k < z - 1; ++k)
+                    {
+                        Hy[i, j, k] = Chyh[i, j, k] * Hy[i, j, k] + Chye[i, j, k] * ((Ez[i + 1, j, k] - Ez[i, j, k]) - (Ex[i, j, k + 1] - Ex[i, j, k]));
+                    }
+                }
+            }
+            
+            // Update Hz
+            for (int i = 0; i < x - 1; ++i)
+            { 
+                for (int j = 0; j < y - 1; ++j)
+                {
+                    for (int k = 0; k < z; ++k)
+                    {
+                        Hz[i, j, k] = Chzh[i, j, k] * Hz[i, j, k] + Chze[i, j, k] * ((Ex[i, j + 1, k] - Ex[i, j, k]) - (Ey[i + 1, j, k] - Ey[i, j, k]));
+                    }
+                }
+            }
         }
         public void UpdateE()
         {
@@ -41,7 +74,7 @@ namespace FDTDWPF.Models
                 }
             }
             //Update Ey
-            for (int i = 1; i < x - 1, ++i)
+            for (int i = 1; i < x - 1; ++i)
             {
                 for (int j = 0; j < y - 1; ++j)
                 {
