@@ -55,6 +55,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Commands\Base\Command.cs" />
     <Compile Include="Models\FDTD.cs" />
     <Compile Include="Models\Grid.cs" />
     <Compile Include="Models\Item.cs" />
