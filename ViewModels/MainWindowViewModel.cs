@@ -5,6 +5,7 @@ using FDTDWPF.ViewModels.Base;
 
 namespace FDTDWPF.ViewModels
 {
+    /// <summary>Модель-представления главного окна</summary>
     public class MainWindowViewModel : ViewModel
     {
         #region Title : string - Заголовок окна
@@ -17,6 +18,7 @@ namespace FDTDWPF.ViewModels
 
         #endregion
 
+        /// <summary>Команда закрытия приложения</summary>
         public ICommand CloseApplicationCommand { get; }
 
         public MainWindowViewModel()
@@ -24,8 +26,12 @@ namespace FDTDWPF.ViewModels
             CloseApplicationCommand = new LambdaCommand(OnCloseApplicationCommandExecuted, CanCloseApplicationCommandExecute);
         }
 
+        /// <summary>Метод действия команды закрытия приложения</summary>
+        /// <param name="Obj">Параметр команды</param>
         private static void OnCloseApplicationCommandExecuted(object Obj) => Application.Current.Shutdown();
 
+        /// <summary>Метод, вызываемый для проверки возможности выполнения команды закрытия приложения</summary>
+        /// <param name="Obj">Параметр команды</param>
         private static bool CanCloseApplicationCommandExecute(object Arg) => true;
     }
 }
