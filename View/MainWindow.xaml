@@ -12,7 +12,9 @@
                 <PerspectiveCamera Position="0, 0, 2" LookDirection="0, 0, -2"/>
             </Viewport3D.Camera>
         </Viewport3D>
-        <Button Content ="Ok" Name = "OK" Width ="100" Height="20" Margin="534,325,159.6,25.4"/>
-        <Button Content ="Cancel" Name="Cancel" Width="100" Height ="20" Margin="658,325,35.6,25.4"/>
+        <UniformGrid HorizontalAlignment="Right" VerticalAlignment="Bottom" Rows="1" Margin="0,20">
+            <Button Content ="Ok" Name = "OK" Margin="15,0" Padding="40,5"/>
+            <Button Content ="Cancel" Name="Cancel" Margin="15,0"/>
+        </UniformGrid>
     </Grid>
 </Window>
