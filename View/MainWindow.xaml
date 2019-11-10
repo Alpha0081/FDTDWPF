@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FDTDWPF"
         xmlns:vm="clr-namespace:FDTDWPF.ViewModels"
+        xmlns:cmd="clr-namespace:FDTDWPF.Commands"
         mc:Ignorable="d"
         Title="{Binding Title}" 
         Height="400" Width="800">
@@ -19,7 +20,11 @@
         </Viewport3D>
         <UniformGrid HorizontalAlignment="Right" VerticalAlignment="Bottom" Rows="1" Margin="0,20">
             <Button Content ="Ok" Name = "OK" Margin="15,0" Padding="40,5" Command="{Binding CloseApplicationCommand}"/>
-            <Button Content ="Cancel" Name="Cancel" Margin="15,0"/>
+            <Button Content ="Cancel" Name="Cancel" Margin="15,0">
+                <Button.Command>
+                    <cmd:CloseApplicationCommand ResultCode="-1"/> 
+                </Button.Command>
+            </Button>
         </UniformGrid>
     </Grid>
 </Window>
