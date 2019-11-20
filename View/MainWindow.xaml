@@ -22,16 +22,7 @@
         <TextBox Margin="638,73,79,271" Text="{Binding X,  UpdateSourceTrigger=LostFocus}"/>
         <TextBox Margin="638,105,80,240" Text="{Binding Y, UpdateSourceTrigger=LostFocus}"/>
         <TextBox Margin="638,136,80,209" Text ="{Binding Z, UpdateSourceTrigger=LostFocus}"/>
-        <TextBox Margin="639,168,81,177"  Text ="{Binding ds, UpdateSourceTrigger=LostFocus}" RenderTransformOrigin="0.5,0.5">
-            <TextBox.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform AngleX="-2.064"/>
-                    <RotateTransform/>
-                    <TranslateTransform X="-0.364"/>
-                </TransformGroup>
-            </TextBox.RenderTransform>
-        </TextBox>
+        <TextBox Margin="639,168,81,177"  Text ="{Binding ds, UpdateSourceTrigger=LostFocus}" RenderTransformOrigin="0.5,0.5"/>
         <Border Margin="10,31,309.6,118.4" BorderThickness="1" BorderBrush="Black">
             <HelixToolkit:HelixViewport3D ZoomExtentsWhenLoaded="True">
                 <HelixToolkit:GridLinesVisual3D Width="{Binding X}" Length="{Binding Y}"  MinorDistance="{Binding ds}" MajorDistance="{Binding ds}" Thickness="0.01"/>
