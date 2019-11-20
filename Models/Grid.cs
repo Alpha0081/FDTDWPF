@@ -2,12 +2,12 @@
 namespace FDTDWPF.Models
 {
     /// <summary>
-    /// Класс создания сетки.
+    /// Класс создания и обработки сетки.
     /// </summary>
-    class Grid
+    public class Grid
     {
         public double[,,] Ex;
-        public double[,,] Ey;
+        public double[,,] Ey; 
         public double[,,] Ez;
         public double[,,] Hz;
         public double[,,] Hy;
@@ -43,6 +43,9 @@ namespace FDTDWPF.Models
         private double c_abc;
         public Grid(int x, int y, int z)
         {
+            this.x = x;
+            this.y = y;
+            this.z = z;
             Hx = new double[x, y - 1, z - 1];
             Hy = new double[x - 1, y, z - 1];
             Hz = new double[x - 1, y - 1, z];
@@ -70,7 +73,7 @@ namespace FDTDWPF.Models
             Exy0 = new double[x - 1, z];
             Ezy0 = new double[x, z - 1];
             Exy1 = new double[x - 1, z];
-            Ezy0 = new double[x, z - 1];
+            Ezy1 = new double[x, z - 1];
 
             Exz0 = new double[x - 1, y];
             Eyz0 = new double[x, y - 1];
@@ -326,5 +329,6 @@ namespace FDTDWPF.Models
                     Eyz1[i, j] = Ey[i, j, k - 1];
                 }
         }
+
     }
 }

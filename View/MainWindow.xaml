@@ -3,7 +3,9 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         xmlns:local="clr-namespace:FDTDWPF"
+        xmlns:HelixToolkit="clr-namespace:HelixToolkit.Wpf;assembly=HelixToolkit.Wpf"
         xmlns:vm="clr-namespace:FDTDWPF.ViewModels"
         xmlns:cmd="clr-namespace:FDTDWPF.Commands"
         mc:Ignorable="d"
@@ -12,19 +14,37 @@
     <Window.DataContext>
         <vm:MainWindowViewModel/>
     </Window.DataContext>
-    <Grid>
-        <Viewport3D>
-            <Viewport3D.Camera>
-                <PerspectiveCamera Position="0, 0, 2" LookDirection="0, 0, -2"/>
-            </Viewport3D.Camera>
-        </Viewport3D>
-        <UniformGrid HorizontalAlignment="Right" VerticalAlignment="Bottom" Rows="1" Margin="0,20">
+    <Grid Margin="0,0,3.6,-0.6">
+        <TextBlock Text="X :" Margin="608,73,151,271" RenderTransformOrigin="1.806,-5.709" TextAlignment="Center"/>
+        <TextBlock Text="Y :" TextAlignment="Center" Margin="608,105,151,240"/>
+        <TextBlock Text="Z :" TextAlignment="Center" Margin="608,136,152,209"/>
+        <TextBlock Text="ds :" TextAlignment="Center" Margin="608,167,152,181" />
+        <TextBox Margin="638,73,79,271" Text="{Binding X,  UpdateSourceTrigger=LostFocus}"/>
+        <TextBox Margin="638,105,80,240" Text="{Binding Y, UpdateSourceTrigger=LostFocus}"/>
+        <TextBox Margin="638,136,80,209" Text ="{Binding Z, UpdateSourceTrigger=LostFocus}"/>
+        <TextBox Margin="639,168,81,177"  Text ="{Binding ds, UpdateSourceTrigger=LostFocus}" RenderTransformOrigin="0.5,0.5">
+            <TextBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="-2.064"/>
+                    <RotateTransform/>
+                    <TranslateTransform X="-0.364"/>
+                </TransformGroup>
+            </TextBox.RenderTransform>
+        </TextBox>
+        <Border Margin="10,31,309.6,118.4" BorderThickness="1" BorderBrush="Black">
+            <HelixToolkit:HelixViewport3D ZoomExtentsWhenLoaded="True">
+                <HelixToolkit:GridLinesVisual3D Width="{Binding X}" Length="{Binding Y}"  MinorDistance="{Binding ds}" MajorDistance="{Binding ds}" Thickness="0.01"/>
+            </HelixToolkit:HelixViewport3D>
+        </Border>
+        <UniformGrid HorizontalAlignment="Right" VerticalAlignment="Bottom" Rows="1" Margin="0, 20">
             <Button Content ="Ok" Name = "OK" Margin="15,0" Padding="40,5" Command="{Binding CloseApplicationCommand}"/>
             <Button Content ="Cancel" Name="Cancel" Margin="15,0">
                 <Button.Command>
-                    <cmd:CloseApplicationCommand ResultCode="-1"/> 
+                    <cmd:CloseApplicationCommand ResultCode="-1"/>
                 </Button.Command>
             </Button>
         </UniformGrid>
+
     </Grid>
 </Window>

@@ -3,8 +3,16 @@ using System;
 
 namespace Lab
 {
+    /// <summary>
+    /// Класс отработки алгоритмов преобразования Фурье
+    /// </summary>
     class FT
     {
+        /// <summary>
+        /// Рекурсивная часть БПФ
+        /// </summary>
+        /// <param name="x">Массив комплексного представления сигнала</param>
+        /// <returns></returns>
         public static Complex[] FFT_rec(Complex[] x)
         {
             Complex t;
@@ -31,6 +39,11 @@ namespace Lab
             }
             return x;
         }
+        /// <summary>
+        /// Метод быстрого преобразования Фурье.
+        /// </summary>
+        /// <param name="array">Массив амплитуд сигнала с шагом dt</param>
+        /// <returns></returns>
         public static Complex[] FFT(double[] array)
         {
             int N = array.Length;
