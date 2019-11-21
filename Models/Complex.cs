@@ -120,7 +120,7 @@ public class Complex
     /// Метод поиска корней n-й степени из ненулевого комплексного числа.
     /// </summary>
     /// <param name="power">Степень корня, равное целому числу.</param>
-    /// <returns>Возращает список из комплексных чисел.</returns>
+    /// <returns>Возращает массив комплексных чисел.</returns>
     public Complex[] roots(int power)
     {
         double r = Math.Pow(hypot(), 1.0 / power);
@@ -152,6 +152,11 @@ public class Complex
     {
         return !(self == other);
     }
+    /// <summary>
+    /// Представление комплексной экспоненты.
+    /// </summary>
+    /// <param name="n">Степень экспоненты</param>
+    /// <returns>Возвращает комплексное число</returns>
     public static Complex Exp(double n)
     {
         return new Complex(Math.Cos(n), Math.Sin(n)); 
